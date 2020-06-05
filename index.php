@@ -1,3 +1,3 @@
 <?php
-    include_once("blog-new.html");
+    include_once("test.html");
 ?>
