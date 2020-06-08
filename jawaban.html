@@ -9,9 +9,9 @@
     <body>
         <nav>
             <div class="Menu-mobile">
-                <a href="a">Menu</a>
+                <a href="#" onclick="showMenu()">Menu</a>
             </div>
-            <ul>
+            <ul id="menu">
                 <li><a href="file:///C:/Users/ramadianrp/Desktop/Les/INPG/Projects/test.html"> HOME </a></li>
                 <li><a href="#"> PRODUCTS </a></li>
                 <li><a href="#"> GALLERY </a></li>
@@ -27,36 +27,36 @@
                 <!-- <img src="balon1.png">  -->
             </div>
             <div class="description">
-                <h1>Nama Anda</h1>
-                <p>Front End Designer</p>
-                <a href="#" class="button bg-blue">Kontak </a>
+                <h1 id="pName">Nama Anda</h1>
+                <p id="pRole">Front End Designer</p>
+                <a href="#" class="button bg-blue" onclick="editForm()">Edit </a>
                 <a href="#" class="button border-green">Resume </a>
             </div>
 
             <div class="information">
                 <div class="data">
                     <p class="field">Availability</p>
-                    <p class="text-gray">Full Time</p>
+                    <p id="pAvailable" class="text-gray">Full Time</p>
                 </div>
             
                 <div class="data">
                     <p class="field"> usia </p>
-                    <p class="text-gray"> 17 </p>
+                    <p id="pAge" class="text-gray"> 17 </p>
 
                 </div>
                 <div class="data">
                     <p class="field"> Lokasi </p>
-                     <p class="text-gray"> Jakarta </p>
+                     <p id="pLocation" class="text-gray"> Jakarta </p>
                  </div>
 
                 <div class="data">
                         <p class="field"> Pengalaman </p>
-                         <p class="text-gray">2 </p>
+                         <p id="pExperience" class="text-gray">2 </p>
                 </div>
 
                  <div class="data">
                         <p class="field"> email </p>
-                        <p class="text-gray"> developer@gmail.com </p>
+                        <p id="pEmail" class="text-gray"> developer@gmail.com </p>
                  </div>
             </div>
         </section>
@@ -65,34 +65,34 @@
             <form>
                 <div class="form">
                     <label> Name </label>
-                    <input type="text" name="Name">
+                    <input id="inpName" type="text" name="Name">
                 </div>
                 <div class="form">
                     <label> Role </label>
-                    <input type="text" name="Role">
+                    <input id="inpRole" type="text" name="Role">
                 </div>
                 <div class="form">
                     <label> Availability </label>
-                    <input type="text" name="Availability">
+                    <input id="inpAvailability" type="text" name="Availability">
                 </div>
                 <div class="form">
                     <label> Age </label>
-                    <input type="text" name="Age">
+                    <input id="inpUsia" type="text" name="Age">
                 </div>
                 <div class="form">
                     <label> Location </label>
-                    <input type="text" name="Location">
+                    <input id="inpLokasi" type="text" name="Location">
                 </div>
                 <div class="form">
                     <label> Years </label>
-                    <input type="text" name="Years">
+                    <input id="inpYears" type="text" name="Years">
                 </div>
                 <div>
                     <label> Email </label>
-                    <input type="email" name="email">
+                    <input id="inpEmail" type="email" name="email">
                 </div>
                 <div class="form">
-                    <input type="submit"  value="SUBMIT" class="bg-green" >
+                    <input onclick="simpanForm()" type="submit"  value="SUBMIT" class="bg-green" >
                    
                 </div>
                 
@@ -100,6 +100,53 @@
 
             </form>
         </section>
+
+        <script>
+            let formMenu = document.getElementById("input-form");
+            formMenu.style.display="none";
+
+            function editForm(){
+                if(formMenu.style.display === "none"){
+                    formMenu.style.display = "block";
+                }else{
+                    formMenu.style.display ="none";
+                    
+                }
+            }
+
+            let name = document.getElementById("pName").innerHTML;
+            let role = document.getElementById("pRole").innerHTML;
+            let available = document.getElementById("pAvailable").innerHTML;
+            let usia = document.getElementById("pAge").innerHTML;
+            let lokasi = document.getElementById("pLocation").innerHTML;
+            let experience = document.getElementById("pExperience").innerHTML;
+            let email = document.getElementById("pEmail").innerHTML;
+
+
+            document.getElementById("inpName").value=name;
+            document.getElementById("inpRole").value=role;
+            document.getElementById("inpAvailability").value=available;
+            document.getElementById("inpUsia").value=usia;
+            document.getElementById("inpLokasi").value=lokasi;
+            document.getElementById("inpYears").value=experience;
+            document.getElementById("inpEmail").value=email;
+            
+            function showMenu()
+            {
+                let menu = document.getElementById("menu");
+                let box = document.getElementById("box-profile");
+                
+                if(menu.style.display === "block"){
+                    menu.style.display = "none";
+                    box.style.paddingTop = "0px";
+                }
+                else{
+                    menu.style.display = "block";
+                    box.style.paddingTop = "125px";
+                }
+            }
+        
+        </script>
         
     </body>
 </html>
